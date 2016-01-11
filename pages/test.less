@@ -1,0 +1,67 @@
+
+.bp {
+
+	//background: black;
+	
+
+    .letter {
+        background: #C5D5E3 !important;
+    }
+	.cell {
+		display: table-cell;		
+		text-align: center;
+		vertical-align: middle;
+		font-size: 75%;
+		width:2em;
+		height:2em;
+		color: black;
+	}       
+    .row {
+        display: table-row;
+        vertical-align: middle;
+        text-align: center;
+        .cell {
+		    &.TL {
+		        background: #B0B0B0;
+	        }
+
+		    &.NN {
+		        background: #E5DCC6;
+		    }
+		    &.TW {
+		        background: #E73A2F;
+		    }
+		    &.DW {
+		        background: #E5B91D;
+		    }
+		    &.DL {
+		        background: #B1A87A;
+		    }
+
+            border:1px solid rgba(255, 255, 255, 1);
+
+            &.selected {
+                outline:2px solid rgba(0, 0, 0, 25%);
+                outline-offset: -2px;
+                
+            }
+
+        }
+    }
+    .letters {
+        display: table;
+        margin: auto;
+        left:0px;
+        right:0px;
+		border-spacing: 3px;
+		padding: 1em;
+
+    }
+    .board {
+	    border-collapse: collapse;
+        display: table;
+        margin: auto;
+        left:0px;
+		right:0px;
+    }
+}

@@ -1,5 +1,5 @@
 module.exports = {
-    entry: "./app.jsx",
+    entry: "./app.js",
     output: {
         path: __dirname,
         filename: "bundle.js"
@@ -10,7 +10,9 @@ module.exports = {
 			{ test: /\.css$/, loader: 'style-loader!css-loader' },
 			
 			//{ test: /\.jsx$/, exclude: /node_modules/, loader: 'jsx-loader?insertPragma=React.DOM&harmony'}
-			{ test: /\.jsx$/, exclude: /node_modules/, loader: 'babel-loader' }
+            //{ test: /\.js?$/, loaders: ['react-hot', 'babel'], exclude: /node_modules/ },
+
+			{ test: /\.js$/, exclude: /node_modules/, loader: 'babel-loader' }
 		]
     }
 };
