@@ -8,7 +8,6 @@ var Gopher = module.exports = function(baseURL) {
 
 	this.request = function(method, path, params, headers) {
 
-
 		function buildPath(path, params) {
 			
 			var parts = [];
@@ -49,12 +48,15 @@ var Gopher = module.exports = function(baseURL) {
 		}
 		
 		function buildHeaders(headers) {
+
 			var result = {};
 			
-			for (var key in headers) {
-				result[key.toLowerCase()] = headers[key];
-			};
-			
+			if (isObject(headers)) {
+				Object.keys(headers).forEach(function(key) {
+					result[key.toLowerCase()] = headers[key];
+				});
+			}
+
 			return result;
 		};
 		
@@ -95,6 +97,7 @@ var Gopher = module.exports = function(baseURL) {
 		return new Promise(function(resolve, reject) {
 
 			clientRequest(options, function (error, response, body) {
+
 				if (!error && response.statusCode == 200) {
 					
 					var json = {};
